@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="icon" href ="./resources/images/favicon.ico"/>
+        <link href="./resources/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="./resources/css/slider.css" rel="stylesheet" type="text/css"/>
+        <script src="./resources/js/jquery.js"></script>
+        <script src="./resources/js/jquery-migrate-1.1.1.js"></script>
+        <script src="./resources/js/superfish.js"></script>
+        <script src="./resources/js/sForm.js"></script>
+        <script src="./resources/js/jquery.jqtransform.js"></script>
+        <script src="./resources/js/jquery.equalheights.js"></script>
+        <script src="./resources/js/jquery.easing.1.3.js"></script>
+        <script src="./resources/js/tms-0.4.1.js"></script>
+        <script src="./resources/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="./resources/js/jquery.ui.totop.js"></script>
+        <script>
+            $(window).load(function () {
+                $('.slider')._TMS({
+                    show: 0,
+                    pauseOnHover: false,
+                    prevBu: '.prev',
+                    nextBu: '.next',
+                    playBu: false,
+                    duration: 800,
+                    preset: 'random',
+                    pagination: false, //'.pagination',true,'<ul></ul>'
+                    pagNums: false,
+                    slideshow: 8000,
+                    numStatus: false,
+                    banners: true,
+                    waitBannerAnimation: false,
+                    progressBar: false
+                });
+                $("#tabs").tabs();
+
+                $().UItoTop({easingType: 'easeOutQuart'});
+            });
+        </script>
+        <title>
+            <ui:insert name="title">Facelets Template</ui:insert>
+        </title>
+    </h:head>
+
+    <h:body class="page1">
+        <header>
+            <div class="container_12">
+                <div class="grid_12"> 
+                    <h:form>
+                        <h1><a href="#{controlAutorizacion.home()}"><img src="./resources/images/logo.jpg" alt="Gerald Harris attorney at law"></img></a> </h1> 
+                    </h:form>
+                    <div class="clear"></div>
+                </div>
+                <div class="menu_block">
+                    <h:form>
+                        <nav class="" >
+                            <ul class="sf-menu">
+                                <li class="current"><h:commandLink action="#{controlAutorizacion.home()}" value="Inicio"></h:commandLink></li>
+                                <li class="with_ul"><h:commandLink action="#{inicio.sobreNosotros()}" value="Sobre nosotros"></h:commandLink></li>
+                                <li><h:commandLink action="#{inicio.secciones()}" value="Secciones"></h:commandLink>
+                                    <ul>
+                                        <li><h:commandLink action="#{inicio.castores()}" value="Castores"></h:commandLink></li>
+                                        <li><h:commandLink action="#{inicio.lobeznos()}" value="Lobeznos"></h:commandLink></li>
+                                        <li><h:commandLink action="#{inicio.manada()}" value="Manada"></h:commandLink></li>
+                                    </ul>
+                                </li>
+                                <li><h:commandLink action="#{inicio.eventos()}" value="Eventos"/></li>
+                                <li><h:commandLink action="#{inicio.inscribirse()}" value="Inscribirse"/></li>
+                                <li><h:commandLink action="#{inicio.noticias()}" value="Noticias"/></li>
+                                <c:if test="#{!empty controlAutorizacion.usuario}">
+                                    <li><h:commandLink action="#{controlAutorizacion.logout()}" value="Salir"/></li>
+                                </c:if> 
+                            </ul>
+                        </nav>
+                    </h:form>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </header>
+        <div class="main">
+            <div id="content" >
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+            <div class="bottom_block">
+	<div class="container_12">
+		<div class="grid_2 prefix_2">
+			<ul>
+				<li><a href="#">FAQS Page</a></li>
+				<li><a href="#">People Say</a></li>
+			</ul>
+		</div>
+		<div class="grid_2">
+			<ul>
+				<li><a href="#">Useful links</a></li>
+				<li><a href="#">Partners</a></li>
+			</ul>
+		</div>
+		<div class="grid_2">
+			<ul>
+				<li><a href="#">Insurance</a></li>
+				<li><a href="#">Family Travel</a></li>
+			</ul>
+		</div>
+		<div class="grid_2">
+			<h4>Contact Us:</h4>
+			TEL: 1-800-234-5678<br /><a href="#">info@demolink.org</a>
+		 
+		</div>
+		<div class="clear"></div>
+		</div>
+	</div>
+        </div>
+
+        <!--==============================footer=================================-->  
+
+        <footer>		
+            <div class="container_12">
+                <div class="grid_12">  
+                    <div class="socials">
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+			<a href="#"></a>
+		</div>
+                    <!-- <div class="copy">
+                        Journey &copy; 2013 | <a href="#">Privacy Policy</a> | Website designed by group D
+                    </div> -->
+                    </div>
+                <div class="clear"></div>
+            </div>
+
+        </footer>
+        <a href="#" id="toTop" style="margin-right: -526px; right: 50%; display: inline;"><span id="toTopHover" style="opacity: 0;"></span></a>
+
+    </h:body>
+
+</html>
+
